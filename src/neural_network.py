@@ -1,4 +1,6 @@
 import copy
+import os
+import pickle
 from typing import Optional, Tuple
 
 import numpy as np
@@ -12,19 +14,29 @@ from keras.layers import Dense
 
 
 class NeuralNetwork(PlayerInterface):
-    _MODEL_FILE = 'model.pickle'
+    _MODEL_FILE = 'weights_14_10_cross.pickle'
 
-    def __init__(self, sign: int, name: str = 'Minimax'):
+    def __init__(self, sign: int, name: str = 'Neural Network'):
         super().__init__(sign, name)
         self._model = Sequential()
-        self._model.add(Dense(9, input_dim=9, activation='relu'))
-        self._model.add(Dense(12, activation='relu'))
+        self._model.add(Dense(14, input_dim=9, activation='relu'))
+        self._model.add(Dense(10, activation='relu'))
         self._model.add(Dense(1, activation='sigmoid'))
         self._model.compile(loss='binary_crossentropy', optimizer='adam', metrics='MeanSquaredError')
-        df = pd.read_csv('data.csv', delimiter=',')
-        x = df.iloc[:, 0:9]
-        y = df.iloc[:, 9]
-        self._model.fit(x, y, epochs=150, batch_size=10)
+
+        if os.path.isfile(NeuralNetwork._MODEL_FILE):
+            with open(NeuralNetwork._MODEL_FILE, 'rb') as weights_pickle:
+                weights = pickle.load(weights_pickle)
+                self._model.set_weights(weights)
+        else:
+            df = pd.read_csv('data_cross.csv', delimiter=',')
+            x = df.iloc[:, 0:9]
+            y = df.iloc[:, 9]
+            self._model.fit(x, y, epochs=300, batch_size=20)
+            weights = self._model.get_weights()
+
+            with open(NeuralNetwork._MODEL_FILE, 'wb') as weights_pickle:
+                pickle.dump(weights, weights_pickle)
 
     def _get_score(self, board: Board) -> float:
         return self._model.predict(np.array(board.state).reshape(-1, 9))

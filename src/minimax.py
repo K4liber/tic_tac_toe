@@ -30,7 +30,10 @@ class Minimax(PlayerInterface):
             if could_be_last:
                 continue
 
-            move_score = get_score(board_copy, self.sign)
+            move_score, game_was_played = get_score(board_copy, self.sign)
+
+            if not game_was_played:
+                continue
 
             if move_score >= best_score:
                 best_score = move_score
@@ -101,12 +104,12 @@ def _save_all_possible_scores(board: Board, player: int = CROSS):
     for move in board.get_possible_moves():
         board_copy = copy.deepcopy(board)
         board_copy.set(move[0], move[1], -1 * player)
-        score, is_ok = get_score(board_copy, player)
+        score, game_was_played = get_score(board_copy, player)
 
         if board_copy.state in state_to_str:
             continue
 
-        if is_ok:
+        if game_was_played:
             state_to_str[board_copy.state] = f'{board_copy.state_str},{score}'
 
         for player_move in board_copy.get_possible_moves():
