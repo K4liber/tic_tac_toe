@@ -1,0 +1,24 @@
+#########################
+Player 1: Neural Network
+Player 2: Minimax
+Results: {'Neural Network': 0, 'Minimax': 0, 'DRAW': 100}
+#########################
+Player 1: Minimax
+Player 2: Neural Network
+Results: {'Minimax': 0, 'Neural Network': 0, 'DRAW': 100}
+#########################
+Player 1: Random
+Player 2: Neural Network
+Results: {'Random': 4, 'Neural Network': 89, 'DRAW': 7}
+#########################
+Player 1: Neural Network
+Player 2: Random
+Results: {'Neural Network': 97, 'Random': 0, 'DRAW': 3}
+#########################
+Player 1: Random
+Player 2: Minimax
+Results: {'Random': 7, 'Minimax': 58, 'DRAW': 35}
+#########################
+Player 1: Minimax
+Player 2: Random
+Results: TODO
