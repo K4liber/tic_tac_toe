@@ -21,4 +21,4 @@ Results: {'Random': 7, 'Minimax': 58, 'DRAW': 35}
 #########################
 Player 1: Minimax
 Player 2: Random
-Results: TODO
+Results: {'Minimax': 83, 'Random': 4, 'DRAW': 13}

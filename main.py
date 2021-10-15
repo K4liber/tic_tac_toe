@@ -44,8 +44,8 @@ if __name__ == '__main__':
     neural_network_player = NeuralNetwork(CROSS)
     minimax_player = Minimax(CIRCLE)
 
-    player_1 = random_player
-    player_2 = minimax_player
+    player_1 = minimax_player
+    player_2 = random_player
     wins = {
         player_1.name: 0,
         player_2.name: 0,
@@ -54,6 +54,7 @@ if __name__ == '__main__':
     games_to_play = 100
 
     for i in range(games_to_play):
+        print(f'Current results: {wins}')
         print(f'GAME: {i+1}/{games_to_play}')
         winner_name = play(
             board=Board(),
