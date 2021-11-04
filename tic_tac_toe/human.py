@@ -1,8 +1,8 @@
 from typing import Optional, Tuple
 
-from src.board import Board
-from src.utils import CROSS, INT_TO_SIGN
-from src.player import PlayerInterface
+from tic_tac_toe.board import Board
+from tic_tac_toe.utils import CROSS, INT_TO_SIGN
+from tic_tac_toe.player import PlayerInterface
 
 
 class Human(PlayerInterface):

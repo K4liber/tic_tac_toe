@@ -6,8 +6,8 @@ from typing import Optional, Tuple
 import numpy as np
 import pandas as pd
 
-from src.board import Board
-from src.player import PlayerInterface
+from tic_tac_toe.board import Board
+from tic_tac_toe.player import PlayerInterface
 
 from keras.models import Sequential
 from keras.layers import Dense

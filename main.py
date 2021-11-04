@@ -1,10 +1,10 @@
-from src.board import Board
-from src.human import Human
-from src.minimax import Minimax, print_all_possible_scores
-from src.neural_network import NeuralNetwork
-from src.player import PlayerInterface
-from src.random import Random
-from src.utils import CROSS, CIRCLE, EMPTY, DRAW
+from tic_tac_toe.board import Board
+from tic_tac_toe.human import Human
+from tic_tac_toe.minimax import Minimax
+from tic_tac_toe.neural_network import NeuralNetwork
+from tic_tac_toe.player import PlayerInterface
+from tic_tac_toe.random import Random
+from tic_tac_toe.utils import CROSS, CIRCLE, DRAW
 
 
 def play(board: Board, player_1: PlayerInterface, player_2: PlayerInterface) -> str:
@@ -44,8 +44,8 @@ if __name__ == '__main__':
     neural_network_player = NeuralNetwork(CROSS)
     minimax_player = Minimax(CIRCLE)
 
-    player_1 = minimax_player
-    player_2 = random_player
+    player_1 = human_player
+    player_2 = neural_network_player
     wins = {
         player_1.name: 0,
         player_2.name: 0,

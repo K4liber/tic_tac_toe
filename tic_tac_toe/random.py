@@ -1,8 +1,8 @@
 import random
 from typing import Optional, Tuple
 
-from src.board import Board
-from src.player import PlayerInterface
+from tic_tac_toe.board import Board
+from tic_tac_toe.player import PlayerInterface
 
 
 class Random(PlayerInterface):

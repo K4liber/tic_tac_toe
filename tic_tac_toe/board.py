@@ -5,7 +5,7 @@ from typing import Optional, List, Tuple
 import numpy as np
 from numpy import ndarray
 
-from src.utils import CROSS, CIRCLE, EMPTY, INT_TO_SIGN
+from tic_tac_toe.utils import CROSS, CIRCLE, EMPTY, INT_TO_SIGN
 
 
 class Board:

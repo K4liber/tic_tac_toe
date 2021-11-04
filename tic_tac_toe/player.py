@@ -1,7 +1,7 @@
 import abc
 from typing import Optional, Tuple
 
-from src.board import Board
+from tic_tac_toe.board import Board
 
 
 class PlayerInterface:
