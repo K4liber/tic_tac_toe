@@ -60,23 +60,23 @@ def get_wins_and_all_games(current_board: Board, player: int = CROSS) -> Tuple[i
                 winner_after_opponent_move = board_after_opponent_move.get_winner()
 
                 if winner_after_opponent_move == player:
-                    wins = wins + 1
-                    all_settled_games = all_settled_games + 1
+                    wins += 1
+                    all_settled_games += 1
                 elif winner_after_opponent_move == -1 * player:
-                    all_settled_games = all_settled_games + 1
+                    all_settled_games += 1
                 else:
                     wins_recurrent, all_settled_games_recurrent = get_wins_and_all_games(
                         board_after_opponent_move, player)
-                    wins = wins + wins_recurrent
-                    all_settled_games = all_settled_games + all_settled_games_recurrent
+                    wins += wins_recurrent
+                    all_settled_games += all_settled_games_recurrent
 
         else:
             if winner == player:
-                wins = wins + 1
-                all_settled_games = all_settled_games + 1
+                wins += 1
+                all_settled_games += 1
 
             if winner == -1 * player:
-                all_settled_games = all_settled_games + 1
+                all_settled_games += 1
 
     return wins, all_settled_games
 

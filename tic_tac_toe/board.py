@@ -15,9 +15,9 @@ class Board:
     def __str__(self):
         m = self._matrix
         board_str = f'{INT_TO_SIGN[m[0, 0]]} | {INT_TO_SIGN[m[0, 1]]} | {INT_TO_SIGN[m[0, 2]]}\n'
-        board_str += f'---------\n'
+        board_str += '---------\n'
         board_str += f'{INT_TO_SIGN[m[1, 0]]} | {INT_TO_SIGN[m[1, 1]]} | {INT_TO_SIGN[m[1, 2]]}\n'
-        board_str += f'---------\n'
+        board_str += '---------\n'
         board_str += f'{INT_TO_SIGN[m[2, 0]]} | {INT_TO_SIGN[m[2, 1]]} | {INT_TO_SIGN[m[2, 2]]}\n'
         return board_str
 

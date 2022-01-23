@@ -15,10 +15,10 @@ class Human(PlayerInterface):
 
         if row_col in current_board.get_possible_moves():
             return row_col
-        else:
-            print('The position is already taken. Please choose the empty one.')
-            return self.get_move(current_board)
+
+        print('The position is already taken. Please choose the empty one.')
+        return self.get_move(current_board)
 
 
 def int_to_move(value: int) -> Tuple[int, int]:
-    return int(value / 3), value % 3
+    return divmod(value, 3)
